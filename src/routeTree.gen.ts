@@ -12,8 +12,33 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
+import { Route as AppLegalRouteImport } from './routes/_app/legal'
+import { Route as AppModuleRouteImport } from './routes/_app/module'
+import { Route as AppPaymentsRouteImport } from './routes/_app/payments'
+import { Route as AppQueuesRouteImport } from './routes/_app/queues'
+import { Route as AppWorkspaceRouteImport } from './routes/_app/workspace'
 import { Route as AppAccountsIndexRouteImport } from './routes/_app/accounts.index'
 import { Route as AppAccountsAccountIdRouteImport } from './routes/_app/accounts.$accountId'
+import { Route as AppModuleAdminRouteImport } from './routes/_app/module.admin'
+import { Route as AppModuleAiRouteImport } from './routes/_app/module.ai'
+import { Route as AppModuleAnalyticsRouteImport } from './routes/_app/module.analytics'
+import { Route as AppModuleCasesRouteImport } from './routes/_app/module.cases'
+import { Route as AppModuleCollateralRouteImport } from './routes/_app/module.collateral'
+import { Route as AppModuleCommunicationsRouteImport } from './routes/_app/module.communications'
+import { Route as AppModuleComplianceRouteImport } from './routes/_app/module.compliance'
+import { Route as AppModuleEarlyWarningRouteImport } from './routes/_app/module.early-warning'
+import { Route as AppModuleIntegrationsRouteImport } from './routes/_app/module.integrations'
+import { Route as AppModuleMessagingRouteImport } from './routes/_app/module.messaging'
+import { Route as AppModuleNotificationsRouteImport } from './routes/_app/module.notifications'
+import { Route as AppModulePaymentPlansRouteImport } from './routes/_app/module.payment-plans'
+import { Route as AppModuleSecurityRouteImport } from './routes/_app/module.security'
+import { Route as AppModuleSegmentationRouteImport } from './routes/_app/module.segmentation'
+import { Route as AppModuleSelfServiceRouteImport } from './routes/_app/module.self-service'
+import { Route as AppModuleStrategyRouteImport } from './routes/_app/module.strategy'
+import { Route as AppModuleUsersRouteImport } from './routes/_app/module.users'
+import { Route as AppModuleVendorsRouteImport } from './routes/_app/module.vendors'
+import { Route as AppModuleWorkAllocationRouteImport } from './routes/_app/module.work-allocation'
+import { Route as AppModuleWorkflowRouteImport } from './routes/_app/module.workflow'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -29,6 +54,31 @@ const AppDashboardRoute = AppDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AppRoute,
 } as any)
+const AppLegalRoute = AppLegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppModuleRoute = AppModuleRouteImport.update({
+  id: '/module',
+  path: '/module',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPaymentsRoute = AppPaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppQueuesRoute = AppQueuesRouteImport.update({
+  id: '/queues',
+  path: '/queues',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppWorkspaceRoute = AppWorkspaceRouteImport.update({
+  id: '/workspace',
+  path: '/workspace',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppAccountsIndexRoute = AppAccountsIndexRouteImport.update({
   id: '/accounts/',
   path: '/accounts/',
@@ -39,17 +89,167 @@ const AppAccountsAccountIdRoute = AppAccountsAccountIdRouteImport.update({
   path: '/accounts/$accountId',
   getParentRoute: () => AppRoute,
 } as any)
+const AppModuleAdminRoute = AppModuleAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleAiRoute = AppModuleAiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleAnalyticsRoute = AppModuleAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleCasesRoute = AppModuleCasesRouteImport.update({
+  id: '/cases',
+  path: '/cases',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleCollateralRoute = AppModuleCollateralRouteImport.update({
+  id: '/collateral',
+  path: '/collateral',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleCommunicationsRoute = AppModuleCommunicationsRouteImport.update({
+  id: '/communications',
+  path: '/communications',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleComplianceRoute = AppModuleComplianceRouteImport.update({
+  id: '/compliance',
+  path: '/compliance',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleEarlyWarningRoute = AppModuleEarlyWarningRouteImport.update({
+  id: '/early-warning',
+  path: '/early-warning',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleIntegrationsRoute = AppModuleIntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleMessagingRoute = AppModuleMessagingRouteImport.update({
+  id: '/messaging',
+  path: '/messaging',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleNotificationsRoute = AppModuleNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModulePaymentPlansRoute = AppModulePaymentPlansRouteImport.update({
+  id: '/payment-plans',
+  path: '/payment-plans',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleSecurityRoute = AppModuleSecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleSegmentationRoute = AppModuleSegmentationRouteImport.update({
+  id: '/segmentation',
+  path: '/segmentation',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleSelfServiceRoute = AppModuleSelfServiceRouteImport.update({
+  id: '/self-service',
+  path: '/self-service',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleStrategyRoute = AppModuleStrategyRouteImport.update({
+  id: '/strategy',
+  path: '/strategy',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleUsersRoute = AppModuleUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleVendorsRoute = AppModuleVendorsRouteImport.update({
+  id: '/vendors',
+  path: '/vendors',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleWorkAllocationRoute = AppModuleWorkAllocationRouteImport.update({
+  id: '/work-allocation',
+  path: '/work-allocation',
+  getParentRoute: () => AppModuleRoute,
+} as any)
+const AppModuleWorkflowRoute = AppModuleWorkflowRouteImport.update({
+  id: '/workflow',
+  path: '/workflow',
+  getParentRoute: () => AppModuleRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof AppDashboardRoute
+  '/legal': typeof AppLegalRoute
+  '/module': typeof AppModuleRouteWithChildren
+  '/payments': typeof AppPaymentsRoute
+  '/queues': typeof AppQueuesRoute
+  '/workspace': typeof AppWorkspaceRoute
   '/accounts/$accountId': typeof AppAccountsAccountIdRoute
+  '/module/admin': typeof AppModuleAdminRoute
+  '/module/ai': typeof AppModuleAiRoute
+  '/module/analytics': typeof AppModuleAnalyticsRoute
+  '/module/cases': typeof AppModuleCasesRoute
+  '/module/collateral': typeof AppModuleCollateralRoute
+  '/module/communications': typeof AppModuleCommunicationsRoute
+  '/module/compliance': typeof AppModuleComplianceRoute
+  '/module/early-warning': typeof AppModuleEarlyWarningRoute
+  '/module/integrations': typeof AppModuleIntegrationsRoute
+  '/module/messaging': typeof AppModuleMessagingRoute
+  '/module/notifications': typeof AppModuleNotificationsRoute
+  '/module/payment-plans': typeof AppModulePaymentPlansRoute
+  '/module/security': typeof AppModuleSecurityRoute
+  '/module/segmentation': typeof AppModuleSegmentationRoute
+  '/module/self-service': typeof AppModuleSelfServiceRoute
+  '/module/strategy': typeof AppModuleStrategyRoute
+  '/module/users': typeof AppModuleUsersRoute
+  '/module/vendors': typeof AppModuleVendorsRoute
+  '/module/work-allocation': typeof AppModuleWorkAllocationRoute
+  '/module/workflow': typeof AppModuleWorkflowRoute
   '/accounts/': typeof AppAccountsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof AppDashboardRoute
+  '/legal': typeof AppLegalRoute
+  '/module': typeof AppModuleRouteWithChildren
+  '/payments': typeof AppPaymentsRoute
+  '/queues': typeof AppQueuesRoute
+  '/workspace': typeof AppWorkspaceRoute
   '/accounts/$accountId': typeof AppAccountsAccountIdRoute
+  '/module/admin': typeof AppModuleAdminRoute
+  '/module/ai': typeof AppModuleAiRoute
+  '/module/analytics': typeof AppModuleAnalyticsRoute
+  '/module/cases': typeof AppModuleCasesRoute
+  '/module/collateral': typeof AppModuleCollateralRoute
+  '/module/communications': typeof AppModuleCommunicationsRoute
+  '/module/compliance': typeof AppModuleComplianceRoute
+  '/module/early-warning': typeof AppModuleEarlyWarningRoute
+  '/module/integrations': typeof AppModuleIntegrationsRoute
+  '/module/messaging': typeof AppModuleMessagingRoute
+  '/module/notifications': typeof AppModuleNotificationsRoute
+  '/module/payment-plans': typeof AppModulePaymentPlansRoute
+  '/module/security': typeof AppModuleSecurityRoute
+  '/module/segmentation': typeof AppModuleSegmentationRoute
+  '/module/self-service': typeof AppModuleSelfServiceRoute
+  '/module/strategy': typeof AppModuleStrategyRoute
+  '/module/users': typeof AppModuleUsersRoute
+  '/module/vendors': typeof AppModuleVendorsRoute
+  '/module/work-allocation': typeof AppModuleWorkAllocationRoute
+  '/module/workflow': typeof AppModuleWorkflowRoute
   '/accounts': typeof AppAccountsIndexRoute
 }
 export interface FileRoutesById {
@@ -57,20 +257,128 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_app': typeof AppRouteWithChildren
   '/_app/dashboard': typeof AppDashboardRoute
+  '/_app/legal': typeof AppLegalRoute
+  '/_app/module': typeof AppModuleRouteWithChildren
+  '/_app/payments': typeof AppPaymentsRoute
+  '/_app/queues': typeof AppQueuesRoute
+  '/_app/workspace': typeof AppWorkspaceRoute
   '/_app/accounts/$accountId': typeof AppAccountsAccountIdRoute
+  '/_app/module/admin': typeof AppModuleAdminRoute
+  '/_app/module/ai': typeof AppModuleAiRoute
+  '/_app/module/analytics': typeof AppModuleAnalyticsRoute
+  '/_app/module/cases': typeof AppModuleCasesRoute
+  '/_app/module/collateral': typeof AppModuleCollateralRoute
+  '/_app/module/communications': typeof AppModuleCommunicationsRoute
+  '/_app/module/compliance': typeof AppModuleComplianceRoute
+  '/_app/module/early-warning': typeof AppModuleEarlyWarningRoute
+  '/_app/module/integrations': typeof AppModuleIntegrationsRoute
+  '/_app/module/messaging': typeof AppModuleMessagingRoute
+  '/_app/module/notifications': typeof AppModuleNotificationsRoute
+  '/_app/module/payment-plans': typeof AppModulePaymentPlansRoute
+  '/_app/module/security': typeof AppModuleSecurityRoute
+  '/_app/module/segmentation': typeof AppModuleSegmentationRoute
+  '/_app/module/self-service': typeof AppModuleSelfServiceRoute
+  '/_app/module/strategy': typeof AppModuleStrategyRoute
+  '/_app/module/users': typeof AppModuleUsersRoute
+  '/_app/module/vendors': typeof AppModuleVendorsRoute
+  '/_app/module/work-allocation': typeof AppModuleWorkAllocationRoute
+  '/_app/module/workflow': typeof AppModuleWorkflowRoute
   '/_app/accounts/': typeof AppAccountsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/accounts/$accountId' | '/accounts/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/legal'
+    | '/module'
+    | '/payments'
+    | '/queues'
+    | '/workspace'
+    | '/accounts/$accountId'
+    | '/module/admin'
+    | '/module/ai'
+    | '/module/analytics'
+    | '/module/cases'
+    | '/module/collateral'
+    | '/module/communications'
+    | '/module/compliance'
+    | '/module/early-warning'
+    | '/module/integrations'
+    | '/module/messaging'
+    | '/module/notifications'
+    | '/module/payment-plans'
+    | '/module/security'
+    | '/module/segmentation'
+    | '/module/self-service'
+    | '/module/strategy'
+    | '/module/users'
+    | '/module/vendors'
+    | '/module/work-allocation'
+    | '/module/workflow'
+    | '/accounts/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/accounts/$accountId' | '/accounts'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/legal'
+    | '/module'
+    | '/payments'
+    | '/queues'
+    | '/workspace'
+    | '/accounts/$accountId'
+    | '/module/admin'
+    | '/module/ai'
+    | '/module/analytics'
+    | '/module/cases'
+    | '/module/collateral'
+    | '/module/communications'
+    | '/module/compliance'
+    | '/module/early-warning'
+    | '/module/integrations'
+    | '/module/messaging'
+    | '/module/notifications'
+    | '/module/payment-plans'
+    | '/module/security'
+    | '/module/segmentation'
+    | '/module/self-service'
+    | '/module/strategy'
+    | '/module/users'
+    | '/module/vendors'
+    | '/module/work-allocation'
+    | '/module/workflow'
+    | '/accounts'
   id:
     | '__root__'
     | '/'
     | '/_app'
     | '/_app/dashboard'
+    | '/_app/legal'
+    | '/_app/module'
+    | '/_app/payments'
+    | '/_app/queues'
+    | '/_app/workspace'
     | '/_app/accounts/$accountId'
+    | '/_app/module/admin'
+    | '/_app/module/ai'
+    | '/_app/module/analytics'
+    | '/_app/module/cases'
+    | '/_app/module/collateral'
+    | '/_app/module/communications'
+    | '/_app/module/compliance'
+    | '/_app/module/early-warning'
+    | '/_app/module/integrations'
+    | '/_app/module/messaging'
+    | '/_app/module/notifications'
+    | '/_app/module/payment-plans'
+    | '/_app/module/security'
+    | '/_app/module/segmentation'
+    | '/_app/module/self-service'
+    | '/_app/module/strategy'
+    | '/_app/module/users'
+    | '/_app/module/vendors'
+    | '/_app/module/work-allocation'
+    | '/_app/module/workflow'
     | '/_app/accounts/'
   fileRoutesById: FileRoutesById
 }
@@ -102,6 +410,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppDashboardRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/legal': {
+      id: '/_app/legal'
+      path: '/legal'
+      fullPath: '/legal'
+      preLoaderRoute: typeof AppLegalRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/module': {
+      id: '/_app/module'
+      path: '/module'
+      fullPath: '/module'
+      preLoaderRoute: typeof AppModuleRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/payments': {
+      id: '/_app/payments'
+      path: '/payments'
+      fullPath: '/payments'
+      preLoaderRoute: typeof AppPaymentsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/queues': {
+      id: '/_app/queues'
+      path: '/queues'
+      fullPath: '/queues'
+      preLoaderRoute: typeof AppQueuesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/workspace': {
+      id: '/_app/workspace'
+      path: '/workspace'
+      fullPath: '/workspace'
+      preLoaderRoute: typeof AppWorkspaceRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/accounts/': {
       id: '/_app/accounts/'
       path: '/accounts'
@@ -116,17 +459,217 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAccountsAccountIdRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/module/admin': {
+      id: '/_app/module/admin'
+      path: '/admin'
+      fullPath: '/module/admin'
+      preLoaderRoute: typeof AppModuleAdminRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/ai': {
+      id: '/_app/module/ai'
+      path: '/ai'
+      fullPath: '/module/ai'
+      preLoaderRoute: typeof AppModuleAiRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/analytics': {
+      id: '/_app/module/analytics'
+      path: '/analytics'
+      fullPath: '/module/analytics'
+      preLoaderRoute: typeof AppModuleAnalyticsRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/cases': {
+      id: '/_app/module/cases'
+      path: '/cases'
+      fullPath: '/module/cases'
+      preLoaderRoute: typeof AppModuleCasesRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/collateral': {
+      id: '/_app/module/collateral'
+      path: '/collateral'
+      fullPath: '/module/collateral'
+      preLoaderRoute: typeof AppModuleCollateralRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/communications': {
+      id: '/_app/module/communications'
+      path: '/communications'
+      fullPath: '/module/communications'
+      preLoaderRoute: typeof AppModuleCommunicationsRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/compliance': {
+      id: '/_app/module/compliance'
+      path: '/compliance'
+      fullPath: '/module/compliance'
+      preLoaderRoute: typeof AppModuleComplianceRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/early-warning': {
+      id: '/_app/module/early-warning'
+      path: '/early-warning'
+      fullPath: '/module/early-warning'
+      preLoaderRoute: typeof AppModuleEarlyWarningRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/integrations': {
+      id: '/_app/module/integrations'
+      path: '/integrations'
+      fullPath: '/module/integrations'
+      preLoaderRoute: typeof AppModuleIntegrationsRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/messaging': {
+      id: '/_app/module/messaging'
+      path: '/messaging'
+      fullPath: '/module/messaging'
+      preLoaderRoute: typeof AppModuleMessagingRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/notifications': {
+      id: '/_app/module/notifications'
+      path: '/notifications'
+      fullPath: '/module/notifications'
+      preLoaderRoute: typeof AppModuleNotificationsRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/payment-plans': {
+      id: '/_app/module/payment-plans'
+      path: '/payment-plans'
+      fullPath: '/module/payment-plans'
+      preLoaderRoute: typeof AppModulePaymentPlansRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/security': {
+      id: '/_app/module/security'
+      path: '/security'
+      fullPath: '/module/security'
+      preLoaderRoute: typeof AppModuleSecurityRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/segmentation': {
+      id: '/_app/module/segmentation'
+      path: '/segmentation'
+      fullPath: '/module/segmentation'
+      preLoaderRoute: typeof AppModuleSegmentationRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/self-service': {
+      id: '/_app/module/self-service'
+      path: '/self-service'
+      fullPath: '/module/self-service'
+      preLoaderRoute: typeof AppModuleSelfServiceRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/strategy': {
+      id: '/_app/module/strategy'
+      path: '/strategy'
+      fullPath: '/module/strategy'
+      preLoaderRoute: typeof AppModuleStrategyRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/users': {
+      id: '/_app/module/users'
+      path: '/users'
+      fullPath: '/module/users'
+      preLoaderRoute: typeof AppModuleUsersRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/vendors': {
+      id: '/_app/module/vendors'
+      path: '/vendors'
+      fullPath: '/module/vendors'
+      preLoaderRoute: typeof AppModuleVendorsRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/work-allocation': {
+      id: '/_app/module/work-allocation'
+      path: '/work-allocation'
+      fullPath: '/module/work-allocation'
+      preLoaderRoute: typeof AppModuleWorkAllocationRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
+    '/_app/module/workflow': {
+      id: '/_app/module/workflow'
+      path: '/workflow'
+      fullPath: '/module/workflow'
+      preLoaderRoute: typeof AppModuleWorkflowRouteImport
+      parentRoute: typeof AppModuleRoute
+    }
   }
 }
 
+interface AppModuleRouteChildren {
+  AppModuleAdminRoute: typeof AppModuleAdminRoute
+  AppModuleAiRoute: typeof AppModuleAiRoute
+  AppModuleAnalyticsRoute: typeof AppModuleAnalyticsRoute
+  AppModuleCasesRoute: typeof AppModuleCasesRoute
+  AppModuleCollateralRoute: typeof AppModuleCollateralRoute
+  AppModuleCommunicationsRoute: typeof AppModuleCommunicationsRoute
+  AppModuleComplianceRoute: typeof AppModuleComplianceRoute
+  AppModuleEarlyWarningRoute: typeof AppModuleEarlyWarningRoute
+  AppModuleIntegrationsRoute: typeof AppModuleIntegrationsRoute
+  AppModuleMessagingRoute: typeof AppModuleMessagingRoute
+  AppModuleNotificationsRoute: typeof AppModuleNotificationsRoute
+  AppModulePaymentPlansRoute: typeof AppModulePaymentPlansRoute
+  AppModuleSecurityRoute: typeof AppModuleSecurityRoute
+  AppModuleSegmentationRoute: typeof AppModuleSegmentationRoute
+  AppModuleSelfServiceRoute: typeof AppModuleSelfServiceRoute
+  AppModuleStrategyRoute: typeof AppModuleStrategyRoute
+  AppModuleUsersRoute: typeof AppModuleUsersRoute
+  AppModuleVendorsRoute: typeof AppModuleVendorsRoute
+  AppModuleWorkAllocationRoute: typeof AppModuleWorkAllocationRoute
+  AppModuleWorkflowRoute: typeof AppModuleWorkflowRoute
+}
+
+const AppModuleRouteChildren: AppModuleRouteChildren = {
+  AppModuleAdminRoute: AppModuleAdminRoute,
+  AppModuleAiRoute: AppModuleAiRoute,
+  AppModuleAnalyticsRoute: AppModuleAnalyticsRoute,
+  AppModuleCasesRoute: AppModuleCasesRoute,
+  AppModuleCollateralRoute: AppModuleCollateralRoute,
+  AppModuleCommunicationsRoute: AppModuleCommunicationsRoute,
+  AppModuleComplianceRoute: AppModuleComplianceRoute,
+  AppModuleEarlyWarningRoute: AppModuleEarlyWarningRoute,
+  AppModuleIntegrationsRoute: AppModuleIntegrationsRoute,
+  AppModuleMessagingRoute: AppModuleMessagingRoute,
+  AppModuleNotificationsRoute: AppModuleNotificationsRoute,
+  AppModulePaymentPlansRoute: AppModulePaymentPlansRoute,
+  AppModuleSecurityRoute: AppModuleSecurityRoute,
+  AppModuleSegmentationRoute: AppModuleSegmentationRoute,
+  AppModuleSelfServiceRoute: AppModuleSelfServiceRoute,
+  AppModuleStrategyRoute: AppModuleStrategyRoute,
+  AppModuleUsersRoute: AppModuleUsersRoute,
+  AppModuleVendorsRoute: AppModuleVendorsRoute,
+  AppModuleWorkAllocationRoute: AppModuleWorkAllocationRoute,
+  AppModuleWorkflowRoute: AppModuleWorkflowRoute,
+}
+
+const AppModuleRouteWithChildren = AppModuleRoute._addFileChildren(
+  AppModuleRouteChildren,
+)
+
 interface AppRouteChildren {
   AppDashboardRoute: typeof AppDashboardRoute
+  AppLegalRoute: typeof AppLegalRoute
+  AppModuleRoute: typeof AppModuleRouteWithChildren
+  AppPaymentsRoute: typeof AppPaymentsRoute
+  AppQueuesRoute: typeof AppQueuesRoute
+  AppWorkspaceRoute: typeof AppWorkspaceRoute
   AppAccountsAccountIdRoute: typeof AppAccountsAccountIdRoute
   AppAccountsIndexRoute: typeof AppAccountsIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppDashboardRoute: AppDashboardRoute,
+  AppLegalRoute: AppLegalRoute,
+  AppModuleRoute: AppModuleRouteWithChildren,
+  AppPaymentsRoute: AppPaymentsRoute,
+  AppQueuesRoute: AppQueuesRoute,
+  AppWorkspaceRoute: AppWorkspaceRoute,
   AppAccountsAccountIdRoute: AppAccountsAccountIdRoute,
   AppAccountsIndexRoute: AppAccountsIndexRoute,
 }
