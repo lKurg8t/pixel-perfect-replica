@@ -44,10 +44,10 @@ function WorkflowEngine() {
           <Field label="Total workflows" value={workflows.length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Active" value={workflows.filter(w => w.status === "Active").length} tone="success" />
+          <Field label="Active" value={workflows.filter(w => w.status === "Active").length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Draft" value={workflows.filter(w => w.status === "Draft").length} tone="warning" />
+          <Field label="Draft" value={workflows.filter(w => w.status === "Draft").length} />
         </Panel>
         <Panel bodyClassName="p-4">
           <Field label="Avg stages" value={Math.round(workflows.reduce((s, w) => s + w.stages, 0) / workflows.length)} />

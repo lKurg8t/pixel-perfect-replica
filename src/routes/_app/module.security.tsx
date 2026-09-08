@@ -34,16 +34,16 @@ function Security() {
 
       <div className="grid gap-5 md:grid-cols-4 mb-5">
         <Panel bodyClassName="p-4">
-          <Field label="Security score" value="A+" tone="success" />
+          <Field label="Security score" value="A+" />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="MFA enabled" value="94%" tone="success" />
+          <Field label="MFA enabled" value="94%" />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Failed logins" value="3" tone="warning" />
+          <Field label="Failed logins" value="3" />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Active sessions" value="45" tone="info" />
+          <Field label="Active sessions" value="45" />
         </Panel>
       </div>
 

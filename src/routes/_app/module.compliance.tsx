@@ -38,10 +38,10 @@ function Compliance() {
           <Field label="Audit entries" value={auditTrail.length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Compliance score" value="98.5%" tone="success" />
+          <Field label="Compliance score" value="98.5%" />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Open issues" value="2" tone="warning" />
+          <Field label="Open issues" value="2" />
         </Panel>
         <Panel bodyClassName="p-4">
           <Field label="Last audit" value="2026-09-01" />
@@ -49,14 +49,15 @@ function Compliance() {
       </div>
 
       <Panel title="Audit trail" description="Recent system activity" bodyClassName="p-0">
-        <DataGrid columns={["Timestamp", "User", "Action", "Entity", "Details", ""]}>
+        <DataGrid columns={["When", "Who", "What", "Entity", "Before", "After", ""]}>
           {auditTrail.slice(0, 5).map((a) => (
             <Row key={a.id}>
-              <Td className="text-xs">{a.timestamp}</Td>
-              <Td>{a.user}</Td>
-              <Td className="font-medium">{a.action}</Td>
+              <Td className="text-xs">{a.when}</Td>
+              <Td>{a.who}</Td>
+              <Td className="font-medium">{a.what}</Td>
               <Td className="text-xs">{a.entity}</Td>
-              <Td className="text-xs">{a.details}</Td>
+              <Td className="text-xs">{a.before}</Td>
+              <Td className="text-xs">{a.after}</Td>
               <Td>
                 <Button variant="ghost" size="sm">View</Button>
               </Td>
@@ -94,6 +95,41 @@ function Compliance() {
               <StatusPill tone="success">Active</StatusPill>
             </div>
             <p className="text-sm text-muted-foreground">7-year retention for audit records</p>
+          </div>
+        </div>
+      </Panel>
+
+      <Panel title="Compliance alerts" description="Recent compliance violations and warnings" className="mt-5">
+        <div className="space-y-3">
+          <div className="p-4 border border-border rounded-lg bg-destructive/5">
+            <div className="flex items-center justify-between mb-2">
+              <span className="font-medium flex items-center gap-2">
+                <span className="text-destructive">⚠</span> Contact frequency exceeded
+              </span>
+              <StatusPill tone="critical">Violation</StatusPill>
+            </div>
+            <p className="text-sm text-muted-foreground">AC-11588 – 5 attempts in 24h (policy limit: 3)</p>
+            <p className="text-xs text-muted-foreground mt-1">Detected: 05 Sep 14:20</p>
+          </div>
+          <div className="p-4 border border-border rounded-lg bg-destructive/5">
+            <div className="flex items-center justify-between mb-2">
+              <span className="font-medium flex items-center gap-2">
+                <span className="text-destructive">⚠</span> Opt-out not honoured
+              </span>
+              <StatusPill tone="critical">Violation</StatusPill>
+            </div>
+            <p className="text-sm text-muted-foreground">AC-20099 – SMS sent after opt-out flag set</p>
+            <p className="text-xs text-muted-foreground mt-1">Detected: 04 Sep 09:15</p>
+          </div>
+          <div className="p-4 border border-border rounded-lg bg-warning/10">
+            <div className="flex items-center justify-between mb-2">
+              <span className="font-medium flex items-center gap-2">
+                <span className="text-warning">⚡</span> Quiet hours breach attempt
+              </span>
+              <StatusPill tone="warning">Blocked</StatusPill>
+            </div>
+            <p className="text-sm text-muted-foreground">AC-10456 – Call attempted at 21:30 (blocked by system)</p>
+            <p className="text-xs text-muted-foreground mt-1">Detected: 03 Sep 21:30</p>
           </div>
         </div>
       </Panel>

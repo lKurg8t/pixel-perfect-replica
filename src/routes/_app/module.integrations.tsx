@@ -38,28 +38,34 @@ function Integrations() {
           <Field label="Total integrations" value={integrations.length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Connected" value={integrations.filter(i => i.status === "Connected").length} tone="success" />
+          <Field label="Connected" value={integrations.filter(i => i.status === "Connected").length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Degraded" value={integrations.filter(i => i.status === "Degraded").length} tone="warning" />
+          <Field label="Error" value={integrations.filter(i => i.status === "Error").length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Failed" value={integrations.filter(i => i.status === "Failed").length} tone="critical" />
+          <Field label="Disconnected" value={integrations.filter(i => i.status === "Disconnected").length} />
         </Panel>
       </div>
 
       <Panel title="Integration registry" description="All external system connections" bodyClassName="p-0">
-        <DataGrid columns={["System", "Type", "Status", "Last sync", ""]}>
-          {integrations.map((i) => (
-            <Row key={i.id}>
+        <DataGrid columns={["System", "Status", "Last sync", "Records", "Failed", "Health", ""]}>
+          {integrations.map((i, idx) => (
+            <Row key={idx}>
               <Td className="font-medium">{i.name}</Td>
-              <Td>{i.type}</Td>
               <Td>
-                <StatusPill tone={i.status === "Connected" ? "success" : i.status === "Degraded" ? "warning" : "critical"}>
+                <StatusPill tone={i.status === "Connected" ? "success" : i.status === "Error" ? "critical" : "neutral"}>
                   {i.status}
                 </StatusPill>
               </Td>
               <Td className="text-xs">{i.lastSync}</Td>
+              <Td className="text-xs">{i.records}</Td>
+              <Td className="text-xs">{i.failed}</Td>
+              <Td>
+                <StatusPill tone={i.health >= 95 ? "success" : i.health >= 80 ? "warning" : "critical"}>
+                  {i.health}%
+                </StatusPill>
+              </Td>
               <Td>
                 <Button variant="ghost" size="sm">Configure</Button>
               </Td>
@@ -72,17 +78,31 @@ function Integrations() {
         <div className="grid gap-3 md:grid-cols-2">
           <div className="p-4 border border-border rounded-lg">
             <div className="flex items-center justify-between mb-2">
-              <span className="font-medium">M-Pesa Daraja API</span>
+              <span className="font-medium">M-Pesa (Daraja)</span>
               <StatusPill tone="success">Healthy</StatusPill>
             </div>
-            <p className="text-sm text-muted-foreground">Last request: 2 minutes ago · 0ms latency</p>
+            <p className="text-sm text-muted-foreground">Last sync: 1 min ago · Health: 96%</p>
           </div>
           <div className="p-4 border border-border rounded-lg">
             <div className="flex items-center justify-between mb-2">
-              <span className="font-medium">Core Banking API</span>
-              <StatusPill tone="warning">Degraded</StatusPill>
+              <span className="font-medium">Core Banking (T24)</span>
+              <StatusPill tone="success">Healthy</StatusPill>
             </div>
-            <p className="text-sm text-muted-foreground">Last request: 5 minutes ago · 450ms latency</p>
+            <p className="text-sm text-muted-foreground">Last sync: 3 min ago · Health: 99%</p>
+          </div>
+          <div className="p-4 border border-border rounded-lg">
+            <div className="flex items-center justify-between mb-2">
+              <span className="font-medium">Credit Bureau (Metropol)</span>
+              <StatusPill tone="critical">Error</StatusPill>
+            </div>
+            <p className="text-sm text-muted-foreground">Last sync: 6 h ago · Health: 42%</p>
+          </div>
+          <div className="p-4 border border-border rounded-lg">
+            <div className="flex items-center justify-between mb-2">
+              <span className="font-medium">WhatsApp Gateway</span>
+              <StatusPill tone="critical">Disconnected</StatusPill>
+            </div>
+            <p className="text-sm text-muted-foreground">Last sync: 2 days ago · Health: 0%</p>
           </div>
         </div>
       </Panel>

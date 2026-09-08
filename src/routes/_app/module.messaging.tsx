@@ -37,13 +37,13 @@ function Messaging() {
           <Field label="Total messages" value="156" />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Unread" value="12" tone="critical" />
+          <Field label="Unread" value="12" />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Active chats" value="8" tone="info" />
+          <Field label="Active chats" value="8" />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Escalations" value="3" tone="warning" />
+          <Field label="Escalations" value="3" />
         </Panel>
       </div>
 

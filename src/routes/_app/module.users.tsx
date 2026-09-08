@@ -44,13 +44,13 @@ function UserManagement() {
           <Field label="Total users" value={users.length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Active" value={users.filter(u => u.status === "Active").length} tone="success" />
+          <Field label="Active" value={users.filter(u => u.status === "Active").length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Roles" value="8" tone="info" />
+          <Field label="Roles" value="8" />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Teams" value="4" tone="info" />
+          <Field label="Teams" value="4" />
         </Panel>
       </div>
 

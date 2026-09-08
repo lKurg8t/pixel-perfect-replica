@@ -34,13 +34,13 @@ function Admin() {
 
       <div className="grid gap-5 md:grid-cols-4 mb-5">
         <Panel bodyClassName="p-4">
-          <Field label="System status" value="Operational" tone="success" />
+          <Field label="System status" value="Operational" />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Uptime" value="99.9%" tone="success" />
+          <Field label="Uptime" value="99.9%" />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Active sessions" value="45" tone="info" />
+          <Field label="Active sessions" value="45" />
         </Panel>
         <Panel bodyClassName="p-4">
           <Field label="Last maintenance" value="2026-09-01" />

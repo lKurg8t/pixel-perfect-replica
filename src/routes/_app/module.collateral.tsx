@@ -41,10 +41,10 @@ function Collateral() {
           <Field label="Total value" value={compactKES(collateral.reduce((s, c) => s + c.value, 0))} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="In realisation" value={collateral.filter(c => c.realisation !== "Not started").length} tone="warning" />
+          <Field label="In realisation" value={collateral.filter(c => c.realisation !== "Not started").length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Held" value={collateral.filter(c => c.status === "Held").length} tone="success" />
+          <Field label="Held" value={collateral.filter(c => c.status === "Held").length} />
         </Panel>
       </div>
 

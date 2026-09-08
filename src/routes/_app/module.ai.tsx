@@ -38,27 +38,36 @@ function AI() {
           <Field label="Total models" value={models.length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="In production" value={models.filter(m => m.status === "Production").length} tone="success" />
+          <Field label="In production" value={models.filter(m => m.status === "Production").length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="In training" value={models.filter(m => m.status === "Training").length} tone="warning" />
+          <Field label="In shadow" value={models.filter(m => m.status === "Shadow").length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Avg accuracy" value="94.2%" tone="info" />
+          <Field label="Avg accuracy" value={(models.reduce((s, m) => s + m.accuracy, 0) / models.length * 100).toFixed(1) + "%"} />
         </Panel>
       </div>
 
       <Panel title="Model library" description="All ML models" bodyClassName="p-0">
-        <DataGrid columns={["Model", "Type", "Purpose", "Accuracy", "Status", ""]}>
-          {models.map((m) => (
-            <Row key={m.id}>
-              <Td className="font-mono text-xs">{m.id}</Td>
-              <Td>{m.type}</Td>
-              <Td className="text-xs">{m.purpose}</Td>
-              <Td className="font-semibold">{m.accuracy}%</Td>
+        <DataGrid columns={["Model", "Version", "Status", "Accuracy", "Drift", "Bias", ""]}>
+          {models.map((m, i) => (
+            <Row key={i}>
+              <Td className="font-medium">{m.name}</Td>
+              <Td className="font-mono text-xs">{m.version}</Td>
               <Td>
-                <StatusPill tone={m.status === "Production" ? "success" : m.status === "Training" ? "warning" : "neutral"}>
+                <StatusPill tone={m.status === "Production" ? "success" : m.status === "Shadow" ? "warning" : "neutral"}>
                   {m.status}
+                </StatusPill>
+              </Td>
+              <Td className="font-semibold">{(m.accuracy * 100).toFixed(0)}%</Td>
+              <Td>
+                <StatusPill tone={m.drift === "Low" ? "success" : m.drift === "Medium" ? "warning" : "critical"}>
+                  {m.drift}
+                </StatusPill>
+              </Td>
+              <Td>
+                <StatusPill tone={m.bias === "Passed" ? "success" : "warning"}>
+                  {m.bias}
                 </StatusPill>
               </Td>
               <Td>

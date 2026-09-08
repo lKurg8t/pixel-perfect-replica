@@ -38,32 +38,33 @@ function Notifications() {
           <Field label="Total notifications" value={notifications.length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Unread" value={notifications.filter(n => !n.read).length} tone="critical" />
+          <Field label="Unread" value={notifications.filter(n => n.unread).length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="SLA alerts" value={notifications.filter(n => n.type === "SLA").length} tone="warning" />
+          <Field label="High priority" value={notifications.filter(n => n.priority === "High" || n.priority === "Critical").length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="System alerts" value={notifications.filter(n => n.type === "System").length} tone="info" />
+          <Field label="SLA breaches" value={notifications.filter(n => n.type === "SLA breach").length} />
         </Panel>
       </div>
 
       <Panel title="Notification history" description="Recent system notifications" bodyClassName="p-0">
-        <DataGrid columns={["Date", "Type", "Title", "Priority", "Status", ""]}>
+        <DataGrid columns={["Time", "Type", "Title", "Detail", "Priority", "Status", ""]}>
           {notifications.map((n) => (
             <Row key={n.id}>
-              <Td>{n.date}</Td>
+              <Td className="text-xs">{n.time}</Td>
               <Td>
-                <StatusPill tone={n.type === "SLA" ? "warning" : n.type === "System" ? "info" : "neutral"}>
+                <StatusPill tone={n.type === "SLA breach" ? "warning" : n.type === "Legal deadline" ? "critical" : "neutral"}>
                   {n.type}
                 </StatusPill>
               </Td>
               <Td className="font-medium">{n.title}</Td>
+              <Td className="text-xs">{n.detail}</Td>
               <Td>
-                <StatusPill tone={n.priority === "High" ? "critical" : "warning"}>{n.priority}</StatusPill>
+                <StatusPill tone={n.priority === "Critical" ? "critical" : n.priority === "High" ? "warning" : "neutral"}>{n.priority}</StatusPill>
               </Td>
               <Td>
-                <StatusPill tone={n.read ? "success" : "critical"}>{n.read ? "Read" : "Unread"}</StatusPill>
+                <StatusPill tone={n.unread ? "critical" : "success"}>{n.unread ? "Unread" : "Read"}</StatusPill>
               </Td>
               <Td>
                 <Button variant="ghost" size="sm">View</Button>

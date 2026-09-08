@@ -37,56 +37,64 @@ function EarlyWarning() {
 
       <div className="grid gap-5 md:grid-cols-4 mb-5">
         <Panel bodyClassName="p-4">
-          <Field label="At-risk accounts" value={earlyWarningAccounts.length} tone="warning" />
+          <Field label="At-risk accounts" value={earlyWarningAccounts.length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Self-cure candidates" value={customers.filter(c => c.segment === "Self-Cure").length} tone="success" />
+          <Field label="Self-cure candidates" value={customers.filter(c => c.segment === "Self-Cure").length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Hardship indicators" value={customers.filter(c => c.segment === "Hardship").length} tone="critical" />
+          <Field label="Hardship indicators" value={customers.filter(c => c.segment === "Hardship").length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Watchlist" value="23" tone="info" />
+          <Field label="Watchlist" value="23" />
         </Panel>
       </div>
 
       <Panel title="Risk signals" description="Accounts requiring attention" bodyClassName="p-0">
         <DataGrid columns={["Customer", "Account", "Stage", "Segment", "DPD", "Risk Signal", ""]}>
-          {earlyWarningAccounts.slice(0, 5).map((c) => (
-            <Row key={c.id}>
-              <Td className="font-medium">{c.name}</Td>
-              <Td className="font-mono text-xs">{c.accounts[0].accountNumber}</Td>
-              <Td>
-                <StatusPill tone={c.stage === "Early Warning" ? "warning" : "info"}>{c.stage}</StatusPill>
-              </Td>
-              <Td>{c.segment}</Td>
-              <Td>{c.accounts[0].dpd}</Td>
-              <Td>
-                <StatusPill tone="warning">
-                  <AlertTriangle className="size-3 inline mr-1" />
-                  Payment pattern change
-                </StatusPill>
-              </Td>
-              <Td>
-                <Button variant="ghost" size="sm">View</Button>
-              </Td>
-            </Row>
-          ))}
+          {earlyWarningAccounts.slice(0, 5).map((c) => {
+            const account = c.accounts[0];
+            if (!account) return null;
+            return (
+              <Row key={c.id}>
+                <Td className="font-medium">{c.name}</Td>
+                <Td className="font-mono text-xs">{account.accountNumber}</Td>
+                <Td>
+                  <StatusPill tone={c.stage === "Early Warning" ? "warning" : "info"}>{c.stage}</StatusPill>
+                </Td>
+                <Td>{c.segment}</Td>
+                <Td>{account.dpd}</Td>
+                <Td>
+                  <StatusPill tone="warning">
+                    <AlertTriangle className="size-3 inline mr-1" />
+                    Payment pattern change
+                  </StatusPill>
+                </Td>
+                <Td>
+                  <Button variant="ghost" size="sm">View</Button>
+                </Td>
+              </Row>
+            );
+          })}
         </DataGrid>
       </Panel>
 
       <div className="mt-5 grid gap-5 md:grid-cols-2">
         <Panel title="Self-cure candidates" description="Accounts likely to self-cure">
           <ul className="space-y-2">
-            {customers.filter(c => c.segment === "Self-Cure").map((c) => (
-              <li key={c.id} className="flex items-center justify-between p-3 border border-border rounded-lg">
-                <div>
-                  <p className="font-medium">{c.name}</p>
-                  <p className="text-xs text-muted-foreground">{c.accounts[0].accountNumber} · {c.accounts[0].dpd} DPD</p>
-                </div>
-                <StatusPill tone="success">High probability</StatusPill>
-              </li>
-            ))}
+            {customers.filter(c => c.segment === "Self-Cure").map((c) => {
+              const account = c.accounts[0];
+              if (!account) return null;
+              return (
+                <li key={c.id} className="flex items-center justify-between p-3 border border-border rounded-lg">
+                  <div>
+                    <p className="font-medium">{c.name}</p>
+                    <p className="text-xs text-muted-foreground">{account.accountNumber} · {account.dpd} DPD</p>
+                  </div>
+                  <StatusPill tone="success">High probability</StatusPill>
+                </li>
+              );
+            })}
           </ul>
         </Panel>
 

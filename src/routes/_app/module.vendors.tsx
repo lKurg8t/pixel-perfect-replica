@@ -38,7 +38,7 @@ function Vendors() {
           <Field label="Total vendors" value={vendors.length} />
         </Panel>
         <Panel bodyClassName="p-4">
-          <Field label="Active" value={vendors.filter(v => v.status === "Active").length} tone="success" />
+          <Field label="Active" value={vendors.filter(v => v.status === "Active").length} />
         </Panel>
         <Panel bodyClassName="p-4">
           <Field label="Total placed" value={vendors.reduce((s, v) => s + v.placed, 0).toLocaleString()} />
